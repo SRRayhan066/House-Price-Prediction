@@ -1,1 +1,10 @@
-ai-env
+ai-env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+data/actual_vs_predicted.png
+data/income_vs_price.png
