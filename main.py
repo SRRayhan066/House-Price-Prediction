@@ -1,4 +1,4 @@
-from src.data_loader import load_data, observe_data, plot_income_vs_price
+from src.data_loader import load_data, observe_data, plot_income_vs_price, plot_correlation_matrix
 from src.preprocessing import prepare_features, split_data, handle_missing_values, encode_categorical
 from src.train import train_model
 from src.evaluate import calculate_metrics, plot_results
@@ -11,6 +11,7 @@ def main():
     # 2. Observe Data
     observe_data(df)
     plot_income_vs_price(df)
+    plot_correlation_matrix(df)
 
     # 3. Prepare Features & Target
     X, y = prepare_features(df)

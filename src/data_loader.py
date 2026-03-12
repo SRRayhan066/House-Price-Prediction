@@ -1,5 +1,7 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 def load_data(file_path):
@@ -25,5 +27,18 @@ def plot_income_vs_price(df, save_path='data/income_vs_price.png'):
     plt.xlabel('Median Income')
     plt.ylabel('Median House Value')
     plt.title('Median Income vs Median House Value')
+    plt.savefig(save_path)
+    plt.close()
+
+
+def plot_correlation_matrix(df, save_path='data/correlation_matrix.png'):
+    """Plot a heatmap of the correlation matrix for numeric columns."""
+    plt.figure(figsize=(12, 8))
+    # Filter for only numeric columns for correlation calculation
+    numeric_df = df.select_dtypes(include=[np.number])
+    corr_matrix = numeric_df.corr()
+    
+    sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=0.5)
+    plt.title('Correlation Matrix Heatmap')
     plt.savefig(save_path)
     plt.close()
